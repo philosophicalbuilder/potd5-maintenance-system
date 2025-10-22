@@ -1,0 +1,10 @@
+{
+    "name": "maintenance-request-api",
+    "description": "POTD 5 Maintenance Request API",
+    "require": {
+        "php": "^8.0"
+    },
+    "scripts": {
+        "start": "php -S 0.0.0.0:$PORT"
+    }
+}
