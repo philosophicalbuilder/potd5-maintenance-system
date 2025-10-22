@@ -28,8 +28,8 @@ interface MaintenanceRequest {
 }
 
 const API_BASE_URL = process.env.NODE_ENV === 'production'
-  ? 'https://potd5-maintenance-system-production.up.railway.app/api/requests.php'
-  : 'http://localhost:8000/api/requests.php'
+  ? 'https://potd5-maintenance-system-production.up.railway.app/api'
+  : 'http://localhost:8000/api'
 
 export default function Component() {
   const [requests, setRequests] = useState<MaintenanceRequest[]>([])
