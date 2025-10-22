@@ -61,13 +61,24 @@ try {
         case 'PUT':
             // Update existing maintenance request
             $id = $input['id'];
+            
+            // Get the requested_by value from either field
+            $requestedBy = $input['by'] ?? $input['requested_by'] ?? '';
+            
+            // Validate and format date
+            $date = $input['date'] ?? '';
+            if (!empty($date) && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
+                // If date is not in YYYY-MM-DD format, use current date
+                $date = date('Y-m-d');
+            }
+            
             $stmt = $pdo->prepare("UPDATE maintenance_requests SET date = ?, room = ?, requested_by = ?, description = ?, priority = ? WHERE id = ?");
             $stmt->execute([
-                $input['date'],
-                $input['room'],
-                $input['by'] ?? $input['requested_by'], // Handle both field names
-                $input['description'],
-                $input['priority'],
+                $date,
+                $input['room'] ?? '',
+                $requestedBy,
+                $input['description'] ?? '',
+                $input['priority'] ?? '',
                 $id
             ]);
             

@@ -81,7 +81,7 @@ export default function Component() {
         requested_by: requestData.by
       }
       delete apiData.by
-      
+
       const response = await fetch(`${API_BASE_URL}/requests.php`, {
         method: 'POST',
         headers: {
@@ -107,7 +107,7 @@ export default function Component() {
         requested_by: requestData.by
       }
       delete apiData.by
-      
+
       const response = await fetch(`${API_BASE_URL}/requests.php`, {
         method: 'PUT',
         headers: {
@@ -189,7 +189,7 @@ export default function Component() {
   const handleOpenUpdateDialog = (request: MaintenanceRequest) => {
     setEditingRequest(request)
     setEditFormData({
-      date: request.date,
+      date: request.DATE || request.date, // Handle both DATE and date fields
       room: request.room,
       by: request.requested_by,
       description: request.description,
@@ -257,8 +257,7 @@ export default function Component() {
               <div className="space-y-2">
                 <label className="text-sm font-light text-gray-300">Requested date:</label>
                 <Input
-                  type="text"
-                  placeholder="Format: yyyy-mm-dd"
+                  type="date"
                   value={formData.date}
                   onChange={(e) => setFormData({ ...formData, date: e.target.value })}
                   className="w-full bg-black/30 border-white/10 text-white placeholder:text-gray-500 focus:border-white/20 focus:ring-white/10"
@@ -435,8 +434,7 @@ export default function Component() {
               <div className="space-y-2">
                 <label className="text-sm font-light text-gray-300">Requested date:</label>
                 <Input
-                  type="text"
-                  placeholder="Format: yyyy-mm-dd"
+                  type="date"
                   value={editFormData.date}
                   onChange={(e) => setEditFormData({ ...editFormData, date: e.target.value })}
                   className="w-full bg-black/30 border-white/10 text-white placeholder:text-gray-500 focus:border-white/20 focus:ring-white/10"
