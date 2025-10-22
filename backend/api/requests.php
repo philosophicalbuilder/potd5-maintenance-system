@@ -29,13 +29,17 @@ try {
             // Debug: Log the input data
             error_log("POST Input: " . json_encode($input));
             
+            // Get the requested_by value from either field
+            $requestedBy = $input['by'] ?? $input['requested_by'] ?? '';
+            error_log("Requested by value: " . $requestedBy);
+            
             $stmt = $pdo->prepare("INSERT INTO maintenance_requests (date, room, requested_by, description, priority) VALUES (?, ?, ?, ?, ?)");
             $stmt->execute([
-                $input['date'],
-                $input['room'],
-                $input['by'] ?? $input['requested_by'], // Handle both field names
-                $input['description'],
-                $input['priority']
+                $input['date'] ?? '',
+                $input['room'] ?? '',
+                $requestedBy,
+                $input['description'] ?? '',
+                $input['priority'] ?? ''
             ]);
             
             $newId = $pdo->lastInsertId();
