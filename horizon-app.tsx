@@ -480,21 +480,11 @@ export default function Component() {
                   {/* Progress Button */}
                   <button
                     onClick={() => setShowProgressImage(true)}
-                    className="mt-4 w-full bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 font-light py-2 px-4 rounded-lg border border-blue-500/30 transition-all duration-200 hover:border-blue-400/50"
+                    className="mt-4 w-full bg-slate-600/20 hover:bg-slate-600/30 text-slate-300 font-light py-2 px-4 rounded-lg border border-slate-500/30 transition-all duration-200 hover:border-slate-400/50"
                   >
-                    See Our Progress!
+                    Click Here for Development Updates
                   </button>
 
-                  <div className="pt-2">
-                    <a
-                      href="https://www.cs.virginia.edu/~up3f/cs4750/inclass/potd5-DB-interfacing.html"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs text-blue-300 hover:text-blue-200 underline transition-colors"
-                    >
-                      View Official Assignment →
-                    </a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -639,13 +629,13 @@ export default function Component() {
                 Here's a snapshot of our Railway deployment dashboard showing our successful deployments and development progress:
               </p>
 
-                <div className="relative rounded-lg overflow-hidden border border-white/10">
-                  <img 
-                    src="/images/rail.png" 
-                    alt="Railway deployment dashboard showing successful deployments"
-                    className="w-full h-auto rounded-lg"
-                  />
-                </div>
+              <div className="relative rounded-lg overflow-hidden border border-white/10">
+                <img
+                  src="/images/rail.png"
+                  alt="Railway deployment dashboard showing successful deployments"
+                  className="w-full h-auto rounded-lg"
+                />
+              </div>
 
               <div className="text-xs text-gray-400 space-y-2">
                 <p><strong className="text-white">What you see:</strong></p>
@@ -660,14 +650,22 @@ export default function Component() {
             </div>
           </div>
 
-          <DialogFooter>
-            <Button
-              onClick={() => setShowProgressImage(false)}
-              className="bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 border border-blue-500/30 hover:border-blue-400/50"
-            >
-              Close
-            </Button>
-          </DialogFooter>
+            <DialogFooter className="flex justify-between">
+              <a 
+                href="https://www.cs.virginia.edu/~up3f/cs4750/inclass/potd5-DB-interfacing.html" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-sm text-slate-300 hover:text-slate-200 underline transition-colors"
+              >
+                View Official Assignment →
+              </a>
+              <Button
+                onClick={() => setShowProgressImage(false)}
+                className="bg-slate-600/20 hover:bg-slate-600/30 text-slate-300 border border-slate-500/30 hover:border-slate-400/50"
+              >
+                Close
+              </Button>
+            </DialogFooter>
         </DialogContent>
       </Dialog>
     </div>
