@@ -27,8 +27,8 @@ interface MaintenanceRequest {
   priority: string
 }
 
-const API_BASE_URL = process.env.NODE_ENV === 'production'
-  ? 'https://your-backend-app.herokuapp.com/api'
+const API_BASE_URL = process.env.NODE_ENV === 'production' 
+  ? 'https://potd5-maintenance-system-production.railway.app/api' 
   : 'http://localhost:8000/api'
 
 export default function Component() {
