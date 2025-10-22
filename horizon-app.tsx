@@ -75,12 +75,19 @@ export default function Component() {
 
   const createRequest = async (requestData: any) => {
     try {
+      // Map 'by' field to 'requested_by' for API
+      const apiData = {
+        ...requestData,
+        requested_by: requestData.by
+      }
+      delete apiData.by
+      
       const response = await fetch(`${API_BASE_URL}/requests.php`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(requestData),
+        body: JSON.stringify(apiData),
       })
       if (!response.ok) throw new Error('Failed to create request')
       const newRequest = await response.json()
@@ -94,12 +101,19 @@ export default function Component() {
 
   const updateRequest = async (id: number, requestData: any) => {
     try {
+      // Map 'by' field to 'requested_by' for API
+      const apiData = {
+        ...requestData,
+        requested_by: requestData.by
+      }
+      delete apiData.by
+      
       const response = await fetch(`${API_BASE_URL}/requests.php`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ id, ...requestData }),
+        body: JSON.stringify({ id, ...apiData }),
       })
       if (!response.ok) throw new Error('Failed to update request')
       const updatedRequest = await response.json()
