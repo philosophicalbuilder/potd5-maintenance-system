@@ -33,9 +33,17 @@ try {
             $requestedBy = $input['by'] ?? $input['requested_by'] ?? '';
             error_log("Requested by value: " . $requestedBy);
             
+            // Validate and format date
+            $date = $input['date'] ?? '';
+            if (!empty($date) && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
+                // If date is not in YYYY-MM-DD format, use current date
+                $date = date('Y-m-d');
+                error_log("Invalid date format, using current date: " . $date);
+            }
+            
             $stmt = $pdo->prepare("INSERT INTO maintenance_requests (date, room, requested_by, description, priority) VALUES (?, ?, ?, ?, ?)");
             $stmt->execute([
-                $input['date'] ?? '',
+                $date,
                 $input['room'] ?? '',
                 $requestedBy,
                 $input['description'] ?? '',
