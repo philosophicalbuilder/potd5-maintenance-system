@@ -240,7 +240,9 @@ export default function Component() {
 
       {/* Main Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-8 pb-16 pt-8">
-        <div className="space-y-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          {/* Main Content */}
+          <div className="lg:col-span-3 space-y-8">
           {/* Maintenance Request Form */}
           <div
             className="backdrop-blur-xl border-white/10 p-8 rounded-2xl space-y-6"
@@ -416,6 +418,58 @@ export default function Component() {
                 </table>
               </div>
             )}
+          </div>
+          </div>
+
+          {/* Tech Stack Sidebar */}
+          <div className="lg:col-span-1">
+            <div
+              className="backdrop-blur-xl border-white/10 p-6 rounded-2xl space-y-4 sticky top-8"
+              style={{
+                background: "transparent",
+                boxShadow: "0 0 0 1px rgba(255, 255, 255, 0.03), 0 0 15px rgba(59, 130, 246, 0.05)",
+                WebkitBackdropFilter: "blur(2px) saturate(120%) brightness(102%) contrast(101%)",
+              }}
+            >
+              <h2 className="text-xl font-light text-white tracking-tight">Tech Stack</h2>
+              
+              <div className="space-y-3">
+                <div>
+                  <h3 className="text-sm font-medium text-blue-300 mb-2">Frontend</h3>
+                  <div className="space-y-1 text-xs text-gray-300">
+                    <div>• Next.js (React)</div>
+                    <div>• TypeScript</div>
+                    <div>• Tailwind CSS</div>
+                    <div>• Vercel Deployment</div>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-sm font-medium text-green-300 mb-2">Backend</h3>
+                  <div className="space-y-1 text-xs text-gray-300">
+                    <div>• PHP 8.1</div>
+                    <div>• PDO (Database)</div>
+                    <div>• RESTful API</div>
+                    <div>• Railway Deployment</div>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-sm font-medium text-purple-300 mb-2">Database</h3>
+                  <div className="space-y-1 text-xs text-gray-300">
+                    <div>• MySQL</div>
+                    <div>• Railway Hosting</div>
+                    <div>• CRUD Operations</div>
+                  </div>
+                </div>
+
+                <div className="pt-2 border-t border-white/10">
+                  <p className="text-xs text-gray-400 leading-relaxed">
+                    <strong className="text-white">POTD 5:</strong> Full-stack maintenance request management system demonstrating modern web development practices with complete CRUD functionality.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
