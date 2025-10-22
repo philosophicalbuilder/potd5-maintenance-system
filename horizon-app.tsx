@@ -56,6 +56,7 @@ export default function Component() {
 
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
   const [deleteRequestId, setDeleteRequestId] = useState<number | null>(null)
+  const [showProgressImage, setShowProgressImage] = useState(false)
 
   // API Functions
   const fetchRequests = async () => {
@@ -475,11 +476,19 @@ export default function Component() {
                   <p className="text-xs text-gray-400 leading-relaxed">
                     <strong className="text-white">CS 4750 Databases - POTD 5:</strong> Database Interfacing assignment. We built this full-stack maintenance request management system based on the official POTD 5 requirements, demonstrating modern web development practices with complete CRUD functionality.
                   </p>
-
+                  
+                  {/* Progress Button */}
+                  <button
+                    onClick={() => setShowProgressImage(true)}
+                    className="mt-4 w-full bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 font-light py-2 px-4 rounded-lg border border-blue-500/30 transition-all duration-200 hover:border-blue-400/50"
+                  >
+                    See Our Progress! 🚀
+                  </button>
+                  
                   <div className="pt-2">
-                    <a
-                      href="https://www.cs.virginia.edu/~up3f/cs4750/inclass/potd5-DB-interfacing.html"
-                      target="_blank"
+                    <a 
+                      href="https://www.cs.virginia.edu/~up3f/cs4750/inclass/potd5-DB-interfacing.html" 
+                      target="_blank" 
                       rel="noopener noreferrer"
                       className="text-xs text-blue-300 hover:text-blue-200 underline transition-colors"
                     >
@@ -613,7 +622,63 @@ export default function Component() {
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
-      </AlertDialog>
-    </div>
-  )
-}
+        </AlertDialog>
+
+        {/* Progress Image Modal */}
+        <Dialog open={showProgressImage} onOpenChange={setShowProgressImage}>
+          <DialogContent className="bg-black/95 border-white/20 text-white backdrop-blur-xl max-w-4xl">
+            <DialogHeader>
+              <DialogTitle className="text-xl font-light text-white">
+                Our Development Progress 🚀
+              </DialogTitle>
+            </DialogHeader>
+            
+            <div className="py-4">
+              <div className="space-y-4">
+                <p className="text-sm text-gray-300">
+                  Here's a snapshot of our Railway deployment dashboard showing our successful deployments and development progress:
+                </p>
+                
+                <div className="relative rounded-lg overflow-hidden border border-white/10">
+                  <img 
+                    src="/images/railway-deployment.png" 
+                    alt="Railway deployment dashboard showing successful deployments"
+                    className="w-full h-auto"
+                    onError={(e) => {
+                      // Fallback if image doesn't exist
+                      e.currentTarget.style.display = 'none';
+                      e.currentTarget.nextElementSibling.style.display = 'block';
+                    }}
+                  />
+                  <div className="hidden p-8 text-center text-gray-400">
+                    <p>Railway deployment dashboard showing our successful deployments</p>
+                    <p className="text-xs mt-2">Image would show: Active deployment, deployment history, and service status</p>
+                  </div>
+                </div>
+                
+                <div className="text-xs text-gray-400 space-y-2">
+                  <p><strong className="text-white">What you see:</strong></p>
+                  <ul className="list-disc list-inside space-y-1 ml-4">
+                    <li>Active deployment with green checkmark ✅</li>
+                    <li>Deployment history showing our iterative development process</li>
+                    <li>GitHub integration with commit messages</li>
+                    <li>MySQL service running alongside our PHP backend</li>
+                    <li>Successful deployment URL: potd5-maintenance-system-production.up.railway.app</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <DialogFooter>
+              <Button
+                onClick={() => setShowProgressImage(false)}
+                className="bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 border border-blue-500/30 hover:border-blue-400/50"
+              >
+                Close
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      </div>
+    )
+  }
