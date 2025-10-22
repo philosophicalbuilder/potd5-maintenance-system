@@ -1,5 +1,5 @@
 {
-    "name": "maintenance-request-api",
+    "name": "philosophicalbuilder/maintenance-request-api",
     "description": "POTD 5 Maintenance Request API",
     "require": {
         "php": "^8.1"
