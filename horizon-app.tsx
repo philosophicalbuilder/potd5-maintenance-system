@@ -473,13 +473,13 @@ export default function Component() {
                   </div>
 
                   <p className="text-xs text-gray-400 leading-relaxed">
-                    <strong className="text-white">CS 4750 Databases - POTD 5:</strong> Database Interfacing assignment. Full-stack maintenance request management system based on the official POTD 5 requirements, demonstrating modern web development practices with complete CRUD functionality.
+                    <strong className="text-white">CS 4750 Databases - POTD 5:</strong> Database Interfacing assignment. We built this full-stack maintenance request management system based on the official POTD 5 requirements, demonstrating modern web development practices with complete CRUD functionality.
                   </p>
-                  
+
                   <div className="pt-2">
-                    <a 
-                      href="https://www.cs.virginia.edu/~up3f/cs4750/inclass/potd5-DB-interfacing.html" 
-                      target="_blank" 
+                    <a
+                      href="https://www.cs.virginia.edu/~up3f/cs4750/inclass/potd5-DB-interfacing.html"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="text-xs text-blue-300 hover:text-blue-200 underline transition-colors"
                     >
