@@ -639,12 +639,20 @@ export default function Component() {
                 Here's a snapshot of our Railway deployment dashboard showing our successful deployments and development progress:
               </p>
 
-                <div className="relative rounded-lg overflow-hidden border border-white/10">
-                  <img 
-                    src="/images/Screenshot 2025-10-22 at 1.32.11 am.png" 
-                    alt="Railway deployment dashboard showing successful deployments"
-                    className="w-full h-auto rounded-lg"
-                  />
+                <div className="relative rounded-lg overflow-hidden border border-white/10 bg-gray-900/50 p-8 text-center">
+                  <div className="text-gray-400">
+                    <p className="text-lg mb-4">Railway Deployment Dashboard</p>
+                    <div className="space-y-2 text-sm">
+                      <p>• Active deployment with green checkmark</p>
+                      <p>• Deployment history showing iterative development</p>
+                      <p>• GitHub integration with commit messages</p>
+                      <p>• MySQL service running alongside PHP backend</p>
+                      <p>• URL: potd5-maintenance-system-production.up.railway.app</p>
+                    </div>
+                    <p className="text-xs mt-4 text-gray-500">
+                      Screenshot shows our successful deployments and development progress
+                    </p>
+                  </div>
                 </div>
 
               <div className="text-xs text-gray-400 space-y-2">
