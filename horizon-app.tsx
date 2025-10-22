@@ -243,182 +243,182 @@ export default function Component() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-3 space-y-8">
-          {/* Maintenance Request Form */}
-          <div
-            className="backdrop-blur-xl border-white/10 p-8 rounded-2xl space-y-6"
-            style={{
-              background: "transparent",
-              backdropFilter: "blur(2px) saturate(120%) brightness(102%) contrast(101%)",
-              boxShadow: "0 0 0 1px rgba(255, 255, 255, 0.03), 0 0 15px rgba(59, 130, 246, 0.05)",
-              WebkitBackdropFilter: "blur(2px) saturate(120%) brightness(102%) contrast(101%)",
-            }}
-          >
-            <h1 className="text-3xl font-light text-white tracking-tight">Maintenance Request</h1>
+            {/* Maintenance Request Form */}
+            <div
+              className="backdrop-blur-xl border-white/10 p-8 rounded-2xl space-y-6"
+              style={{
+                background: "transparent",
+                backdropFilter: "blur(2px) saturate(120%) brightness(102%) contrast(101%)",
+                boxShadow: "0 0 0 1px rgba(255, 255, 255, 0.03), 0 0 15px rgba(59, 130, 246, 0.05)",
+                WebkitBackdropFilter: "blur(2px) saturate(120%) brightness(102%) contrast(101%)",
+              }}
+            >
+              <h1 className="text-3xl font-light text-white tracking-tight">Maintenance Request</h1>
 
-            <div className="grid grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-sm font-light text-gray-300">Requested date:</label>
-                <Input
-                  type="date"
-                  value={formData.date}
-                  onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                  className="w-full bg-black/30 border-white/10 text-white placeholder:text-gray-500 focus:border-white/20 focus:ring-white/10"
-                />
+              <div className="grid grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-sm font-light text-gray-300">Requested date:</label>
+                  <Input
+                    type="date"
+                    value={formData.date}
+                    onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                    className="w-full bg-black/30 border-white/10 text-white placeholder:text-gray-500 focus:border-white/20 focus:ring-white/10"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-light text-gray-300">Room Number:</label>
+                  <Input
+                    type="text"
+                    value={formData.room}
+                    onChange={(e) => setFormData({ ...formData, room: e.target.value })}
+                    className="w-full bg-black/30 border-white/10 text-white placeholder:text-gray-500 focus:border-white/20 focus:ring-white/10"
+                  />
+                </div>
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-light text-gray-300">Room Number:</label>
+                <label className="text-sm font-light text-gray-300">Requested by:</label>
                 <Input
                   type="text"
-                  value={formData.room}
-                  onChange={(e) => setFormData({ ...formData, room: e.target.value })}
+                  placeholder="Enter your name"
+                  value={formData.by}
+                  onChange={(e) => setFormData({ ...formData, by: e.target.value })}
                   className="w-full bg-black/30 border-white/10 text-white placeholder:text-gray-500 focus:border-white/20 focus:ring-white/10"
                 />
               </div>
-            </div>
 
-            <div className="space-y-2">
-              <label className="text-sm font-light text-gray-300">Requested by:</label>
-              <Input
-                type="text"
-                placeholder="Enter your name"
-                value={formData.by}
-                onChange={(e) => setFormData({ ...formData, by: e.target.value })}
-                className="w-full bg-black/30 border-white/10 text-white placeholder:text-gray-500 focus:border-white/20 focus:ring-white/10"
-              />
-            </div>
+              <div className="space-y-2">
+                <label className="text-sm font-light text-gray-300">Description of work/repair:</label>
+                <Textarea
+                  value={formData.description}
+                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                  className="w-full min-h-[100px] bg-black/30 border-white/10 text-white placeholder:text-gray-500 focus:border-white/20 focus:ring-white/10 resize-none"
+                />
+              </div>
 
-            <div className="space-y-2">
-              <label className="text-sm font-light text-gray-300">Description of work/repair:</label>
-              <Textarea
-                value={formData.description}
-                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                className="w-full min-h-[100px] bg-black/30 border-white/10 text-white placeholder:text-gray-500 focus:border-white/20 focus:ring-white/10 resize-none"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-light text-gray-300">Requested Priority:</label>
-              <Select
-                value={formData.priority}
-                onValueChange={(value) => setFormData({ ...formData, priority: value })}
-              >
-                <SelectTrigger className="w-full bg-black/30 border-white/10 text-white focus:border-white/20 focus:ring-white/10">
-                  <SelectValue placeholder="Select priority" />
-                </SelectTrigger>
-                <SelectContent className="bg-black/95 border-white/20 text-white backdrop-blur-xl">
-                  <SelectItem value="low" className="text-white focus:bg-white/10 focus:text-white">
-                    Low
-                  </SelectItem>
-                  <SelectItem value="medium" className="text-white focus:bg-white/10 focus:text-white">
-                    Medium
-                  </SelectItem>
-                  <SelectItem value="high" className="text-white focus:bg-white/10 focus:text-white">
-                    High
-                  </SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4 pt-4">
-              <Button
-                onClick={handleAdd}
-                className="w-full bg-black/80 hover:bg-black/60 text-white border border-white/20 font-light transition-all"
-              >
-                Add
-              </Button>
-              <Button
-                onClick={handleClear}
-                className="w-full bg-black/80 hover:bg-black/60 text-white border border-white/20 font-light transition-all"
-              >
-                Clear form
-              </Button>
-            </div>
-          </div>
-
-          {/* List of Requests */}
-          <div
-            className="backdrop-blur-xl border-white/10 p-8 rounded-2xl"
-            style={{
-              background: "transparent",
-              backdropFilter: "blur(2px) saturate(120%) brightness(102%) contrast(101%)",
-              boxShadow: "0 0 0 1px rgba(255, 255, 255, 0.03), 0 0 15px rgba(59, 130, 246, 0.05)",
-              WebkitBackdropFilter: "blur(2px) saturate(120%) brightness(102%) contrast(101%)",
-            }}
-          >
-            <h2 className="text-2xl font-light text-white mb-6 tracking-tight">List of requests</h2>
-
-            {error && (
-              <div className="mb-4 p-4 bg-red-500/20 border border-red-500/30 rounded-lg">
-                <p className="text-red-300 font-light">Error: {error}</p>
-                <Button
-                  onClick={fetchRequests}
-                  className="mt-2 bg-red-500/40 hover:bg-red-500/30 text-white font-light"
+              <div className="space-y-2">
+                <label className="text-sm font-light text-gray-300">Requested Priority:</label>
+                <Select
+                  value={formData.priority}
+                  onValueChange={(value) => setFormData({ ...formData, priority: value })}
                 >
-                  Retry
+                  <SelectTrigger className="w-full bg-black/30 border-white/10 text-white focus:border-white/20 focus:ring-white/10">
+                    <SelectValue placeholder="Select priority" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-black/95 border-white/20 text-white backdrop-blur-xl">
+                    <SelectItem value="low" className="text-white focus:bg-white/10 focus:text-white">
+                      Low
+                    </SelectItem>
+                    <SelectItem value="medium" className="text-white focus:bg-white/10 focus:text-white">
+                      Medium
+                    </SelectItem>
+                    <SelectItem value="high" className="text-white focus:bg-white/10 focus:text-white">
+                      High
+                    </SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4 pt-4">
+                <Button
+                  onClick={handleAdd}
+                  className="w-full bg-black/80 hover:bg-black/60 text-white border border-white/20 font-light transition-all"
+                >
+                  Add
+                </Button>
+                <Button
+                  onClick={handleClear}
+                  className="w-full bg-black/80 hover:bg-black/60 text-white border border-white/20 font-light transition-all"
+                >
+                  Clear form
                 </Button>
               </div>
-            )}
+            </div>
 
-            {loading ? (
-              <div className="flex items-center justify-center py-8">
-                <div className="text-white font-light">Loading requests...</div>
-              </div>
-            ) : (
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse">
-                  <thead>
-                    <tr className="bg-white/5 border-b border-white/10">
-                      <th className="px-4 py-4 text-left font-medium text-gray-300 text-sm">ReqID</th>
-                      <th className="px-4 py-4 text-left font-medium text-gray-300 text-sm">Date</th>
-                      <th className="px-4 py-4 text-left font-medium text-gray-300 text-sm">Room#</th>
-                      <th className="px-4 py-4 text-left font-medium text-gray-300 text-sm">By</th>
-                      <th className="px-4 py-4 text-left font-medium text-gray-300 text-sm">Description</th>
-                      <th className="px-4 py-4 text-left font-medium text-gray-300 text-sm">Priority</th>
-                      <th className="px-4 py-4 text-left font-medium text-gray-300 text-sm">Update?</th>
-                      <th className="px-4 py-4 text-left font-medium text-gray-300 text-sm">Delete?</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {requests.map((request, index) => (
-                      <tr
-                        key={request.id}
-                        className={`border-b border-white/5 hover:bg-white/5 transition-colors ${index % 2 === 0 ? "bg-black/10" : "bg-transparent"
-                          }`}
-                      >
-                        <td className="px-4 py-3 text-white font-light">{request.id}</td>
-                        <td className="px-4 py-3 text-white font-light">{request.date}</td>
-                        <td className="px-4 py-3 text-white font-light">{request.room}</td>
-                        <td className="px-4 py-3 text-white font-light">{request.requested_by}</td>
-                        <td className="px-4 py-3 text-white font-light">{request.description}</td>
-                        <td className="px-4 py-3">
-                          <span className="text-white font-light">{request.priority}</span>
-                        </td>
-                        <td className="px-4 py-3">
-                          <Button
-                            size="sm"
-                            onClick={() => handleOpenUpdateDialog(request)}
-                            className="bg-blue-500/40 hover:bg-blue-500/30 text-white font-light transition-all"
-                          >
-                            Update
-                          </Button>
-                        </td>
-                        <td className="px-4 py-3">
-                          <Button
-                            size="sm"
-                            onClick={() => handleDeleteClick(request.id)}
-                            className="bg-red-500/40 hover:bg-red-500/30 text-white font-light transition-all"
-                          >
-                            Delete
-                          </Button>
-                        </td>
+            {/* List of Requests */}
+            <div
+              className="backdrop-blur-xl border-white/10 p-8 rounded-2xl"
+              style={{
+                background: "transparent",
+                backdropFilter: "blur(2px) saturate(120%) brightness(102%) contrast(101%)",
+                boxShadow: "0 0 0 1px rgba(255, 255, 255, 0.03), 0 0 15px rgba(59, 130, 246, 0.05)",
+                WebkitBackdropFilter: "blur(2px) saturate(120%) brightness(102%) contrast(101%)",
+              }}
+            >
+              <h2 className="text-2xl font-light text-white mb-6 tracking-tight">List of requests</h2>
+
+              {error && (
+                <div className="mb-4 p-4 bg-red-500/20 border border-red-500/30 rounded-lg">
+                  <p className="text-red-300 font-light">Error: {error}</p>
+                  <Button
+                    onClick={fetchRequests}
+                    className="mt-2 bg-red-500/40 hover:bg-red-500/30 text-white font-light"
+                  >
+                    Retry
+                  </Button>
+                </div>
+              )}
+
+              {loading ? (
+                <div className="flex items-center justify-center py-8">
+                  <div className="text-white font-light">Loading requests...</div>
+                </div>
+              ) : (
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse">
+                    <thead>
+                      <tr className="bg-white/5 border-b border-white/10">
+                        <th className="px-4 py-4 text-left font-medium text-gray-300 text-sm">ReqID</th>
+                        <th className="px-4 py-4 text-left font-medium text-gray-300 text-sm">Date</th>
+                        <th className="px-4 py-4 text-left font-medium text-gray-300 text-sm">Room#</th>
+                        <th className="px-4 py-4 text-left font-medium text-gray-300 text-sm">By</th>
+                        <th className="px-4 py-4 text-left font-medium text-gray-300 text-sm">Description</th>
+                        <th className="px-4 py-4 text-left font-medium text-gray-300 text-sm">Priority</th>
+                        <th className="px-4 py-4 text-left font-medium text-gray-300 text-sm">Update?</th>
+                        <th className="px-4 py-4 text-left font-medium text-gray-300 text-sm">Delete?</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
-          </div>
+                    </thead>
+                    <tbody>
+                      {requests.map((request, index) => (
+                        <tr
+                          key={request.id}
+                          className={`border-b border-white/5 hover:bg-white/5 transition-colors ${index % 2 === 0 ? "bg-black/10" : "bg-transparent"
+                            }`}
+                        >
+                          <td className="px-4 py-3 text-white font-light">{request.id}</td>
+                          <td className="px-4 py-3 text-white font-light">{request.date}</td>
+                          <td className="px-4 py-3 text-white font-light">{request.room}</td>
+                          <td className="px-4 py-3 text-white font-light">{request.requested_by}</td>
+                          <td className="px-4 py-3 text-white font-light">{request.description}</td>
+                          <td className="px-4 py-3">
+                            <span className="text-white font-light">{request.priority}</span>
+                          </td>
+                          <td className="px-4 py-3">
+                            <Button
+                              size="sm"
+                              onClick={() => handleOpenUpdateDialog(request)}
+                              className="bg-blue-500/40 hover:bg-blue-500/30 text-white font-light transition-all"
+                            >
+                              Update
+                            </Button>
+                          </td>
+                          <td className="px-4 py-3">
+                            <Button
+                              size="sm"
+                              onClick={() => handleDeleteClick(request.id)}
+                              className="bg-red-500/40 hover:bg-red-500/30 text-white font-light transition-all"
+                            >
+                              Delete
+                            </Button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Tech Stack Sidebar */}
@@ -432,7 +432,7 @@ export default function Component() {
               }}
             >
               <h2 className="text-xl font-light text-white tracking-tight">Tech Stack</h2>
-              
+
               <div className="space-y-3">
                 <div>
                   <h3 className="text-sm font-medium text-blue-300 mb-2">Frontend</h3>
@@ -464,6 +464,14 @@ export default function Component() {
                 </div>
 
                 <div className="pt-2 border-t border-white/10">
+                  <div className="mb-3">
+                    <h3 className="text-sm font-medium text-yellow-300 mb-2">Team Members</h3>
+                    <div className="space-y-1 text-xs text-gray-300">
+                      <div>• Ramkrishna Sharma</div>
+                      <div>• Aaron Dai</div>
+                    </div>
+                  </div>
+                  
                   <p className="text-xs text-gray-400 leading-relaxed">
                     <strong className="text-white">POTD 5:</strong> Full-stack maintenance request management system demonstrating modern web development practices with complete CRUD functionality.
                   </p>
