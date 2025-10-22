@@ -629,7 +629,7 @@ export default function Component() {
         <DialogContent className="bg-black/95 border-white/20 text-white backdrop-blur-xl max-w-4xl">
           <DialogHeader>
             <DialogTitle className="text-xl font-light text-white">
-                Our Development Progress
+              Our Development Progress
             </DialogTitle>
           </DialogHeader>
 
@@ -639,20 +639,18 @@ export default function Component() {
                 Here's a snapshot of our Railway deployment dashboard showing our successful deployments and development progress:
               </p>
 
-                <div className="relative rounded-lg overflow-hidden border border-white/10 bg-gray-900/50 p-8 text-center">
-                  <div className="text-gray-400">
-                    <p className="text-lg mb-2">Railway Deployment Dashboard</p>
-                    <p className="text-sm">Active deployment with green checkmark</p>
-                    <p className="text-sm">Deployment history showing iterative development</p>
-                    <p className="text-sm">GitHub integration with commit messages</p>
-                    <p className="text-sm">MySQL service running alongside PHP backend</p>
-                  </div>
+                <div className="relative rounded-lg overflow-hidden border border-white/10">
+                  <img 
+                    src="/images/Screenshot 2025-10-22 at 1.32.11 am.png" 
+                    alt="Railway deployment dashboard showing successful deployments"
+                    className="w-full h-auto rounded-lg"
+                  />
                 </div>
 
               <div className="text-xs text-gray-400 space-y-2">
                 <p><strong className="text-white">What you see:</strong></p>
                 <ul className="list-disc list-inside space-y-1 ml-4">
-                    <li>Active deployment with green checkmark</li>
+                  <li>Active deployment with green checkmark</li>
                   <li>Deployment history showing our iterative development process</li>
                   <li>GitHub integration with commit messages</li>
                   <li>MySQL service running alongside our PHP backend</li>
