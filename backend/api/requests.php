@@ -26,6 +26,9 @@ try {
             
         case 'POST':
             // Create new maintenance request
+            // Debug: Log the input data
+            error_log("POST Input: " . json_encode($input));
+            
             $stmt = $pdo->prepare("INSERT INTO maintenance_requests (date, room, requested_by, description, priority) VALUES (?, ?, ?, ?, ?)");
             $stmt->execute([
                 $input['date'],
